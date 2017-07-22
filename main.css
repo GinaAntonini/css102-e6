@@ -43,3 +43,51 @@
 	flex-wrap: wrap;
 	justify-content: center; 
 }
+
+/*PUT SOLD OUT OVER ONE IMAGE*/
+/*.sold-out {
+	position: relative;
+	top: -400px;
+}*/
+/*
+.sold-out {
+	position: absolute;
+	top: 0;
+}*/
+
+
+.product {
+	position: relative;
+}
+
+.sold-out {
+	position: absolute;
+	top: 90px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
