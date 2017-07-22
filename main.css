@@ -4,6 +4,7 @@
 	width: 400px;
 	border: 2px solid slategray;
 	font-family: 'Vibur';
+	margin: 1%;
 }
 
 .image img {
@@ -33,4 +34,12 @@
 .description h6 {
 	font-size: 1.5em;
 	padding: 2%;
+}
+
+/*LAYOUT- FLEXBOX*/
+
+#product-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center; 
 }
