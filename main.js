@@ -1,6 +1,14 @@
-var allProducts = []; //define products in array
+//No more var - let, const
+//Fat arrow functions
+//Object literal value shorthand notation
+//String template literal (`<div>`)
 
-var product1 = {
+//"let" allows you to manipulate that variable later on
+//"const" - keeps your variable static...alleviates human error
+
+const allProducts = []; //define products in array
+
+const product1 = {
 	name: "Mop Attire",
 	imagePath: "./images/mopAttire.jpg",
 	imageAlt: "Product: Mop Attire",
@@ -9,7 +17,7 @@ var product1 = {
 	soldOut: false
 };
 
-var product2 = {
+const product2 = {
   name: "Taco Suit",
   imagePath: "./images/tacoSuit.jpg",
   imageAlt: "Product: Taco Suit",
@@ -18,7 +26,7 @@ var product2 = {
   soldOut: false
 };
 
-var product3 = {
+const product3 = {
   name: "Neck Decoration",
   imagePath: "./images/neckDecoration.jpg",
   imageAlt: "Product: Neck Decoration",
@@ -27,7 +35,7 @@ var product3 = {
   soldOut: false
 };
 
-var product4 = {
+const product4 = {
   name: "Head Ornament",
   imagePath: "./images/headOrnament.jpg",
   imageAlt: "Product: Head Ornament",
@@ -36,7 +44,7 @@ var product4 = {
   soldOut: true
 };
 
-var product5 = {
+const product5 = {
   name: "Boob Hat",
   imagePath: "./images/boobHat.jpg",
   imageAlt: "Product: Boob Hat",
@@ -51,13 +59,18 @@ allProducts.push(product3)
 allProducts.push(product4)
 allProducts.push(product5)
 
-console.log("All my weird baby products: ", allProducts);
+const addNewProduct = (name, imagePath, imageAlt, description, price, soldOut, userRating) => {
+  const newProduct = {name, imagePath, imageAlt, description, price, soldOut, userRating};
+  allProducts.push(newProduct);
+}
 
-var productContainer = document.getElementById("product-container"); //defining the html element
+addNewProduct("Butt Paste", "https://upload.wikimedia.org/wikipedia/en/e/e8/Boudreauxs_Butt_Paste.jpg", "picture of cream", "this is butt paste", 4.99, true, "5 stars");
 
-function buildDomString(product){
-    var domString = "";
+const productContainer = document.getElementById("product-container"); //defining the html element
 
+
+const buildDomString = (product) => {
+  let domString = "";
 
     domString += '<section class="product">';
     domString +=   '<div class="title">';
@@ -79,24 +92,24 @@ function buildDomString(product){
     return domString;
 }
 
-function printProductArrayToDom(productArray) { //runs the loop that is then calling the buildDomString function. 
-  for (var i = 0; i < productArray.length; i++) {
-    var currentProduct = allProducts[i];
-    var productDomString = buildDomString(currentProduct);
+const printProductArrayToDom = (productArray) => { //runs the loop that is then calling the buildDomString function. 
+  for (let i = 0; i < productArray.length; i++) {
+    const currentProduct = allProducts[i];
+    const productDomString = buildDomString(currentProduct);
     productContainer.innerHTML += productDomString;
   }
 }
 
 printProductArrayToDom(allProducts);
 
-var selectedCard;  
+let selectedCard;  
 
-document.getElementById("product-container").addEventListener("click", function(event){
+document.getElementById("product-container").addEventListener("click", (event) => {
   changeBorder(event);
   printSelectedDescription();
 })
 
-function changeBorder(event) {
+const changeBorder = (event) => {
   if (event.target.classList.contains("title")){
     selectedCard = event.target.parentNode;
   } else if (event.target.parentNode.parentNode.classList.contains("product")){
@@ -108,8 +121,8 @@ function changeBorder(event) {
 selectedCard.classList.add("border-funsies");
 }
 
-function printSelectedDescription(){
-  var description = selectedCard.childNodes;
+const printSelectedDescription = () => {
+  const description = selectedCard.childNodes;
   console.log(description);
 }
 
